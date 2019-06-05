@@ -2,6 +2,7 @@ version: '3'
 
 services:
   nginx-rtmp:
+    restart: always 
     build: .
     ports:
       - 8080:80
