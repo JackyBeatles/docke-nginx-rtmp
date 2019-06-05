@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  nginx-rtmp:
+    build: .
+    ports:
+      - 8080:80
+    volumes:
+      - ./video:/opt/static/videos
+      - ./conf/nginx.conf:/usr/local/nginx/conf/nginx.conf
