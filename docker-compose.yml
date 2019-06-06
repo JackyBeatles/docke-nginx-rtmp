@@ -1,11 +1,17 @@
-version: '3'
-
+version: "3"
 services:
+  proxy:
+    restart: always 
+    image: domecloud/openresty:edge
+    volumes:
+      - ./proxy:/opt/lixen/nginx/conf/site
+    ports:  
+      - 8085:80
   nginx-rtmp:
+    depends_on:
+        - proxy
     restart: always 
     build: .
-    ports:
-      - 8080:80
     volumes:
       - ./video:/opt/static/videos
       - ./conf/nginx.conf:/usr/local/nginx/conf/nginx.conf
