@@ -5,6 +5,7 @@ services:
     image: domecloud/openresty:edge
     volumes:
       - ./proxy:/opt/lixen/nginx/conf/site
+      - ./ssl:/home
     ports:  
       - 8085:80
   nginx-rtmp:
